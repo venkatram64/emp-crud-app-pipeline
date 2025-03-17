@@ -4,8 +4,7 @@ FROM openjdk:17-jdk-alpine
 # Install curl for health checks
 RUN apk add --no-cache curl
 
-# Set the working directory inside the container
-WORKDIR /app
+VOLUME /tmp
 
 # Copy the JAR file into the container
 COPY target/*.jar app.jar
