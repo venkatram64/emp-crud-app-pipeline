@@ -19,3 +19,6 @@ docker ps
 Step 5:
 You can also manually test the health endpoint:
 curl http://localhost:8080/actuator/health
+------------------ECR--------------------
+create ecr repository
+emp-crud-app-ecr
