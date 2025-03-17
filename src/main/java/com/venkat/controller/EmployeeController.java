@@ -19,7 +19,7 @@ public class EmployeeController {
 
     @GetMapping("/info")
     public String info() {
-        return "Employee Service is up and running";
+        return "Employee Service is up and running modified";
     }
 
     @PostMapping
