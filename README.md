@@ -25,3 +25,16 @@ emp-crud-app-ecr
 
 ---------------CodeBuild----------------
 
+
+----------ECS----------------
+
+
+create cluser
+create task definition
+
+CMD-SHELL,curl -f http://localhost:8080/actuator/health || exit 1
+
+----------------CodePipeline----------------------------
+
+build code pipeline 
+
