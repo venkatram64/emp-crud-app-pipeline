@@ -3,11 +3,12 @@ mvn clean package
 testing on local machine(command line terminal)
 java -jar target/emp-crud-app-pipeline-0.0.1-SNAPSHOT.jar  
 
-Step 2: Build the Docker image
+Step 2: Build the Docker image on local
 
 docker build -t emp-crud-app-pipeline .
 
-docker images
+to check images
+docker images -a
 
 Step 3:
 Run the Docker Container:
@@ -19,22 +20,33 @@ docker ps
 Step 5:
 You can also manually test the health endpoint:
 curl http://localhost:8080/actuator/health
-------------------ECR--------------------
-create ecr repository
-emp-crud-app-ecr
 
----------------CodeBuild----------------
+to see the running containers
+docker ps
+to delete the container
+docker rm -f emp-crud-app-pipeline
+-----------------------------------------------------------------------
+All below steps are in AWS console, should have account
+Step 6:
+create ecr(elastic container registry) repository, which is similar to docker hub
+as emp-crud-app-ecr, this is specified in buildspec.yml file
+you can get the information after clicking the "View push commands" button,
+then copy the commands to buildspec.yml
+
+Step 7: CodeBuild
 
 
-----------ECS----------------
+Step 8: ECS(Elastic Container Service)
+ECS cluster contains backend service, which contains the backend task definition that is the image from ECR
 
-
-create cluser
+create cluster
 create task definition
+create service
+application load balancer
 
 CMD-SHELL,curl -f http://localhost:8080/actuator/health || exit 1
 
-----------------CodePipeline----------------------------
+Step 9: CodePipeline
 
 build code pipeline 
 
